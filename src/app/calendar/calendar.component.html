@@ -1,0 +1,42 @@
+<div id="calendar-wrap">
+  <header>
+    <h1>{{calendarData.monthYear | date: 'MMMM y'}}</h1>
+  </header>
+  <div id="calendar">
+    <ul class="weekdays">
+      <li>Montag</li>
+      <li>Dienstag</li>
+      <li>Mittwoch</li>
+      <li>Donnerstag</li>
+      <li>Freitag</li>
+      <li>Samstag</li>
+      <li>Sonntag</li>
+    </ul>
+
+    <!-- Days from previous month -->
+
+    <ul *ngFor="let week of calendarData.days" class="days">
+      <!-- Days in current month -->
+      <ng-container *ngFor="let day of week">
+        <ng-container *ngIf="day.dayNumber == 0; else other_content">
+          <li class="day other-month">
+          </li>
+        </ng-container>
+        <ng-template #other_content>
+          <li class="day other-month">
+            <div class="date">{{day.dayNumber}}</div>
+            <div *ngFor="let event of day.events" class="event">
+    						<div class="event-desc">
+    							{{event.description}}
+    						</div>
+    						<div class="event-time">
+    							{{event.time}}
+    						</div>     			
+            </div>
+          </li>
+        </ng-template>
+      </ng-container>
+    </ul>
+
+  </div><!-- /. calendar -->
+</div><!-- /. wrap -->
