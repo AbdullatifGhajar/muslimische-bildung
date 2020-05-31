@@ -8,15 +8,24 @@ registerLocaleData(localeDe, localeDeExtra);
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { HomeComponent } from './home/home.component';
+import { EventsComponent } from './events/events.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { DownloadsComponent } from './downloads/downloads.component';
+import { ContactComponent } from './contact/contact.component';
+import { AboutComponent } from './about/about.component';
+import { ImprintComponent } from './imprint/imprint.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+
+import { RouterModule } from '@angular/router';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { EventsComponent } from './events/events.component';
-import { CalendarComponent } from './calendar/calendar.component';
 
 @NgModule({
   declarations: [
@@ -25,14 +34,28 @@ import { CalendarComponent } from './calendar/calendar.component';
     HeaderComponent,
     FooterComponent,
     EventsComponent,
-    CalendarComponent
+    CalendarComponent,
+    DownloadsComponent,
+    ContactComponent,
+    AboutComponent,
+    ImprintComponent,
+    PrivacyPolicyComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    RouterModule.forRoot([
+      { path: 'home', component: HomeComponent },
+      { path: 'events', component: EventsComponent },
+      { path: 'downloads', component: DownloadsComponent },
+      { path: 'contact', component: ContactComponent },
+      { path: 'about', component: AboutComponent },
+      { path: 'imprint', component: ImprintComponent },
+      { path: 'privacy-policy', component: PrivacyPolicyComponent },
+    ])
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'de' }

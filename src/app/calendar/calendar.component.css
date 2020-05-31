@@ -98,7 +98,7 @@ header {
    ============================*/
 
 
-@media(max-width: 768px) {
+@media(max-width: 100px) {
 
 	#calendar .weekdays, #calendar .other-month {
 		display: none;
